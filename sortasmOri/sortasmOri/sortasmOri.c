@@ -1,14 +1,24 @@
 // sortasmOri.cpp : Defines the entry point for the console application.
 //
+#define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
 #include <tchar.h>
+#include <inttypes.h>
+#include <math.h>
+#include <stdio.h>
+#include <time.h>
 
 int array[10] = {2, 1, 3, 6, 3, 4, 9, 6, 5, 0};
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
+	
 	int i = 0, j = 0, temp = 0;
+	
+	
+
 	__asm
 	{
 	mov         dword ptr [i],0  

@@ -3,16 +3,25 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <time.h>
 
-int array[10] = {2, 1, 3, 6, 3, 4, 9, 6, 5, 0};
+int array[10000];
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int i = 0, j = 0, temp = 0;
+	clock_t start, end;
+	double diff;
 
-	for( i = 0; i < 10; i++)
+	for (int i = 0; i < 10000; i++) {
+		array[i] = rand() % 100;
+	}
+
+	start = clock();
+
+	for( i = 0; i < 10000; i++)
 	{
-		for( j = 0; j < 10; j++)
+		for( j = 0; j < 10000; j++)
 		{
 			if ( array[i] > array[j])
 			{
@@ -22,7 +31,16 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 		}
 	}
+	
+	
+
+	
+	end = clock();
+
+	diff = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("%f", diff);
 	getchar();
+	
 	return 0;
 }
 
